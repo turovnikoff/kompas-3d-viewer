@@ -8,3 +8,4 @@ samples/drawings/*
 !samples/drawings/draw1.cdw
 !samples/drawings/frag1.frw
 !samples/drawings/styles.frw
+!examples/

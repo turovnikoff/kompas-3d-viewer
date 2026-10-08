@@ -197,6 +197,10 @@ const SAMPLES = [
   ['Спецификация «Ролик в сборе» (.spw)', 'samples/spw/', ['spec3.spw']],
   ['Корпус принтера (сборка, 24 экз.)', 'samples/casing/', ['assembly3dPrinterCasing.a3d', 'item3dPrinterCasingBlock1.m3d', 'item3dPrinterCasingDVP1.m3d', 'item3dPrinterCasingPipe1.m3d', 'item3dPrinterCasingPipe2.m3d']],
   ['Крышка термобокса (сборка, 40 экз., 98 тыс. треуг.)', 'samples/termobox_top/', ['assembly3dPrinterTermoboxTopV2.a3d', 'item3dPrinterTermoboxCornerV2.2.m3d', 'item3dPrinterTermoboxPlankV2.m3d', 'item3dPrinterTermoboxPlankV2_2.2.m3d', 'item3dPrinterTermoboxPlankV2_2.m3d']],
+  ['Болтовое соединение (сборка, 5 экз.)', 'examples/bolted_plate/', ['Bolted plate.a3d', 'Plate.m3d', 'Bolt M5x16.m3d', 'Nut M5.m3d']],
+  ['Опора вала (сборка, 4 экз.)', 'examples/shaft_support/', ['Shaft support.a3d', 'Base.m3d', 'Shaft.m3d', 'Collar.m3d']],
+  ['Спецификация «Болтовое соединение» (.spw)', 'examples/bolted_plate/', ['Bolted plate.spw']],
+  ['Спецификация «Опора вала» (.spw)', 'examples/shaft_support/', ['Shaft support.spw']],
 ];
 const EMB = window.__M3D_SAMPLES || {};     // samples embedded by tools/build.mjs; the ones that are not present are not offered
 function fillSamples() {

@@ -7,5 +7,7 @@ const emb = {};
 const add = f => { emb[f.split(path.sep).join('/')] = fs.readFileSync(f).toString('base64'); };
 if (fs.existsSync('sample.m3d')) add('sample.m3d');
 if (fs.existsSync('samples')) for (const d of fs.readdirSync('samples')) for (const f of fs.readdirSync(path.join('samples', d))) if (!f.startsWith('~$')) add(path.join('samples', d, f));      // optional: absent in a clean checkout
+// the author's own examples (tracked in the repository)
+if (fs.existsSync('examples')) for (const d of fs.readdirSync('examples')) for (const f of fs.readdirSync(path.join('examples', d))) if (!f.startsWith('~$') && !f.endsWith('.bak')) add(path.join('examples', d, f));
 fs.writeFileSync('dist/samples.js', 'window.__M3D_SAMPLES=' + JSON.stringify(emb) + ';');
 console.log('built', Object.keys(emb).length, 'samples');
