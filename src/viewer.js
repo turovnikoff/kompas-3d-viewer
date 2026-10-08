@@ -193,7 +193,7 @@ const SAMPLES = [   // [name (ru), folder, files, name (en)]
   ['Корпус принтера (сборка, 24 экз.)', 'samples/casing/', ['assembly3dPrinterCasing.a3d', 'item3dPrinterCasingBlock1.m3d', 'item3dPrinterCasingDVP1.m3d', 'item3dPrinterCasingPipe1.m3d', 'item3dPrinterCasingPipe2.m3d'], 'Printer casing (assembly, 24 inst.)'],
   ['Крышка термобокса (сборка, 40 экз., 98 тыс. треуг.)', 'samples/termobox_top/', ['assembly3dPrinterTermoboxTopV2.a3d', 'item3dPrinterTermoboxCornerV2.2.m3d', 'item3dPrinterTermoboxPlankV2.m3d', 'item3dPrinterTermoboxPlankV2_2.2.m3d', 'item3dPrinterTermoboxPlankV2_2.m3d'], 'Thermobox lid (assembly, 40 inst., 98k triangles)'],
   ['Болтовое соединение (сборка, 9 экз.)', 'examples/bolted_plate/', ['Bolted plate.a3d', 'Plate.m3d', 'Bolt M5x16.m3d', 'Nut M5.m3d'], 'Bolted plate (assembly, 9 inst.)'],
-  ['Опора вала (сборка, 4 экз.)', 'examples/shaft_support/', ['Shaft support.a3d', 'Base.m3d', 'Shaft.m3d', 'Collar.m3d'], 'Shaft support (assembly, 4 inst.)'],
+  ['Опора вала (сборка, 4 экз.)', 'examples/shaft_support/', ['Shaft support.a3d', 'Base.m3d', 'Stud M12x44.m3d', 'Nut M12.m3d'], 'Shaft support (assembly, 4 inst.)'],
   ['Спецификация «Болтовое соединение» (.spw)', 'examples/bolted_plate/', ['Bolted plate.spw'], 'Specification "Bolted plate" (.spw)'],
   ['Спецификация «Опора вала» (.spw)', 'examples/shaft_support/', ['Shaft support.spw'], 'Specification "Shaft support" (.spw)'],
   ['Чертёж сборки «Болтовое соединение» (.cdw): виды, размеры, позиции', 'examples/bolted_plate/', ['Bolted plate drawing.cdw'], 'Bolted plate assembly drawing (.cdw): views, dimensions, positions'],
