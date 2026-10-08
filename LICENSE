@@ -1,0 +1,59 @@
+KOMPAS-3D viewer — Proprietary License
+Copyright (c) 2026 turovnikoff. All rights reserved.
+
+1. Ownership. This software, its source code, documentation (including FORMAT.md) and
+   all accompanying materials (together, the "Software") are the exclusive property of
+   turovnikoff (the "Copyright Holder"). No title or ownership rights are transferred
+   to you.
+
+2. No license without permission. No right to use, run, copy, modify, merge, translate,
+   publish, distribute, sublicense, sell, host (including as a network service), or
+   create derivative works of the Software, in whole or in part, in source or binary
+   form, is granted unless you have obtained the prior, express, written permission of
+   the Copyright Holder. Any permission is limited to the scope, purpose and duration
+   stated in it and is not transferable.
+
+3. Viewing. Making the source code visible in a public repository does not grant any
+   license. The code may be read, but any other use requires permission under Section 2.
+   The technical accounts of file formats in FORMAT.md are the Copyright Holder's own
+   expression; facts about file formats are not claimed.
+
+4. Third-party components. The Software bundles third-party components that remain under
+   their own licenses (see NOTICE.md). This license does not apply to them and does not
+   restrict your rights under their licenses.
+
+5. Trademarks and third-party files. KOMPAS-3D is a trademark of ASCON. The Software is an
+   independent work and is not affiliated with, endorsed by or sponsored by ASCON. This
+   license does not cover any CAD files, models or drawings that you open with the
+   Software or that are used as examples; they belong to their respective owners.
+
+6. Termination. Any use without permission, or outside the scope of a granted permission,
+   automatically terminates all rights you may have and is a violation of the Copyright
+   Holder's rights.
+
+7. No warranty. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+   PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE
+   FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+   OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR ITS USE.
+
+To request permission, contact the Copyright Holder (turovnikoff) through the repository
+that hosts this Software.
+
+----------------------------------------------------------------------------------------
+
+Лицензия на русском языке (справочный перевод; в случае расхождений приоритет у
+английского текста).
+
+KOMPAS-3D viewer — Проприетарная лицензия
+Copyright (c) 2026 turovnikoff. Все права защищены.
+
+Программа, её исходный код и документация принадлежат исключительно правообладателю
+(turovnikoff). Любое использование — запуск, копирование, изменение, распространение,
+публикация, размещение как сетевого сервиса, создание производных работ — разрешено
+только с предварительного письменного разрешения правообладателя и в пределах,
+указанных в таком разрешении. Публичная доступность исходного кода не означает выдачи
+лицензии. Сторонние компоненты (см. NOTICE.md) остаются под своими лицензиями.
+KOMPAS-3D — товарный знак АСКОН; проект независим и не связан с АСКОН. Файлы КОМПАС-3D,
+открываемые в программе, принадлежат своим владельцам. Программа предоставляется «как
+есть», без каких-либо гарантий.

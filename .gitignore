@@ -1,0 +1,11 @@
+node_modules/
+dist/samples.js
+*.bak
+~$*
+# third-party CAD files used for local testing are not redistributed; only the author's own examples are kept
+samples/*
+!samples/drawings/
+samples/drawings/*
+!samples/drawings/draw1.cdw
+!samples/drawings/frag1.frw
+!samples/drawings/styles.frw
