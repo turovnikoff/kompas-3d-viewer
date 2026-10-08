@@ -23,13 +23,6 @@ const D = {
     missing: 'Не хватает деталей: {list}', open_fail: 'Не удалось открыть файл: {e}', sample_fail: 'Пример не загружен: {e}', no_bodies: 'Нет тел для экспорта',
   },
 };
-export const SAMPLE_NAMES = {
-  en: ['Orange Pi Zero 3 case (part)', 'Beer float (assembly, 2 parts)', 'Threading die M2 (assembly, 7 inst.)', 'Printer door (assembly, 12 planks)', 'Bolt and nut (old format, experimental)',
-    'Drawing fragment (.frw): lines, circle, text, dimension', 'Drawing (.cdw)', 'Real drawing "Calibration flange" (.cdw, partial)', 'Electrical schematic A1 (.cdw, KOMPAS v14 format)',
-    'Line styles (.frw): main, thin, axis, dashed…', 'Specification "Filter", 2 sheets (.spw)', 'Specification "Bracket" (.spw)', 'Specification "Roller assembly" (.spw)',
-    'Printer casing (assembly, 24 inst.)', 'Thermobox lid (assembly, 40 inst., 98k triangles)',
-    'Bolted plate (assembly, 5 inst.)', 'Shaft support (assembly, 4 inst.)', 'Specification "Bolted plate" (.spw)', 'Specification "Shaft support" (.spw)'],
-};
 let lang = 'en';
 try { const s = localStorage.getItem('m3d-lang'); if (s === 'ru' || s === 'en') lang = s; } catch { /* storage unavailable */ }
 export const getLang = () => lang;

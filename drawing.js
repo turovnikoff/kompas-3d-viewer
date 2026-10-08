@@ -592,6 +592,13 @@ export function parseDrawing(arrayBuffer) {
       }
     }
   }
+  // a dimension without a stored value gets a computed one (derived); drop it when the author put the same number next to it as a plain text
+  const norm = t => t.replace(/\s+/g, '').replace('.', ',');
+  const plain = entities.filter(e => e.t === 'text' && !e.derived && !e.sheet);
+  for (let i = entities.length - 1; i >= 0; i--) {
+    const e = entities[i];
+    if (e.t === 'text' && e.derived && plain.some(q => norm(q.text) === norm(e.text) && Math.hypot(q.x - e.x, q.y - e.y) < 20)) entities.splice(i, 1);
+  }
   let sheet = null;
   if (size) {
     const withStamp = legacyFile ? legacyHasFirstSheetStamp(chunks[0]) : hasFirstSheetStamp(files), cells = !withStamp ? new Map() : legacyFile ? readLegacyStampCells(chunks[0]) : readStampCells(chunks);

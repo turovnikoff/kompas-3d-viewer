@@ -4,7 +4,7 @@ import { parseM3D, loadAssembly } from '../m3d.js';
 import { parseDrawing } from '../drawing.js';
 import { parseSpecification } from '../spec.js';
 import { stlBinary, zip, dxf, svgPages, STY } from './export.js';
-import { t, getLang, setLang, applyStatic, SAMPLE_NAMES } from './i18n.js';
+import { t, getLang, setLang, applyStatic } from './i18n.js';
 
 const $ = id => document.getElementById(id);
 const view = $('view');
@@ -181,32 +181,29 @@ async function load(files) {
 const readFiles = async list => load(await Promise.all([...list].map(async f => ({ name: f.name, buf: await f.arrayBuffer() }))));
 $('file').onchange = e => { if (e.target.files.length) readFiles(e.target.files); };
 
-const SAMPLES = [
-  ['Корпус Orange Pi Zero 3 (деталь)', '', ['sample.m3d']],
-  ['Поплавок (сборка, 2 детали)', 'samples/beer_float/', ['assemblyBeerFloat.a3d', 'itemBeerFloatBottom.m3d', 'itemBeerFloatTop.m3d']],
-  ['Плашка M2 (сборка, 7 экз.)', 'samples/die_m2/', ['assemblyBodyOfDieForThreadingM2.a3d', 'itemBodyOfDieForThreadingM2-1.m3d', 'itemBodyOfDieForThreadingM2-2.m3d', 'itemBodyOfDieForThreadingM2-3.m3d', 'itemNutM3.m3d', 'itemSemicircularHeadScrewM3X8.m3d']],
-  ['Дверь принтера (сборка, 12 планок)', 'samples/printer_door/', ['assembly3dPrinterDoor.a3d', 'item3dPrinterDoorPlankV2.m3d']],
-  ['Болт и гайка (старый формат, экспериментально)', 'samples/legacy_bolt_nut/', ['Сборка.Д.a3d', 'болт.Д.m3d', 'гайка.Д.m3d']],
-  ['Чертёж-фрагмент (.frw): линии, окружность, текст, размер', 'samples/drawings/', ['frag1.frw']],
-  ['Чертёж (.cdw)', 'samples/drawings/', ['draw1.cdw']],
-  ['Реальный чертёж Калибровочный фланец (.cdw, частично)', 'samples/drawings/', ['derm1.cdw']],
-  ['Схема электрическая A1 (.cdw, формат КОМПАС v14)', 'samples/drawings/', ['schematic_a1.cdw']],
-  ['Стили линий (.frw): основная, тонкая, осевая, штриховая…', 'samples/drawings/', ['styles.frw']],
-  ['Спецификация «Фильтр», 2 листа (.spw)', 'samples/spw/', ['spec1.spw']],
-  ['Спецификация «Кронштейн» (.spw)', 'samples/spw/', ['spec2.spw']],
-  ['Спецификация «Ролик в сборе» (.spw)', 'samples/spw/', ['spec3.spw']],
-  ['Корпус принтера (сборка, 24 экз.)', 'samples/casing/', ['assembly3dPrinterCasing.a3d', 'item3dPrinterCasingBlock1.m3d', 'item3dPrinterCasingDVP1.m3d', 'item3dPrinterCasingPipe1.m3d', 'item3dPrinterCasingPipe2.m3d']],
-  ['Крышка термобокса (сборка, 40 экз., 98 тыс. треуг.)', 'samples/termobox_top/', ['assembly3dPrinterTermoboxTopV2.a3d', 'item3dPrinterTermoboxCornerV2.2.m3d', 'item3dPrinterTermoboxPlankV2.m3d', 'item3dPrinterTermoboxPlankV2_2.2.m3d', 'item3dPrinterTermoboxPlankV2_2.m3d']],
-  ['Болтовое соединение (сборка, 5 экз.)', 'examples/bolted_plate/', ['Bolted plate.a3d', 'Plate.m3d', 'Bolt M5x16.m3d', 'Nut M5.m3d']],
-  ['Опора вала (сборка, 4 экз.)', 'examples/shaft_support/', ['Shaft support.a3d', 'Base.m3d', 'Shaft.m3d', 'Collar.m3d']],
-  ['Спецификация «Болтовое соединение» (.spw)', 'examples/bolted_plate/', ['Bolted plate.spw']],
-  ['Спецификация «Опора вала» (.spw)', 'examples/shaft_support/', ['Shaft support.spw']],
+const SAMPLES = [   // [name (ru), folder, files, name (en)]
+  ['Корпус Orange Pi Zero 3 (деталь)', '', ['sample.m3d'], 'Orange Pi Zero 3 case (part)'],
+  ['Поплавок (сборка, 2 детали)', 'samples/beer_float/', ['assemblyBeerFloat.a3d', 'itemBeerFloatBottom.m3d', 'itemBeerFloatTop.m3d'], 'Beer float (assembly, 2 parts)'],
+  ['Плашка M2 (сборка, 7 экз.)', 'samples/die_m2/', ['assemblyBodyOfDieForThreadingM2.a3d', 'itemBodyOfDieForThreadingM2-1.m3d', 'itemBodyOfDieForThreadingM2-2.m3d', 'itemBodyOfDieForThreadingM2-3.m3d', 'itemNutM3.m3d', 'itemSemicircularHeadScrewM3X8.m3d'], 'Threading die M2 (assembly, 7 inst.)'],
+  ['Дверь принтера (сборка, 12 планок)', 'samples/printer_door/', ['assembly3dPrinterDoor.a3d', 'item3dPrinterDoorPlankV2.m3d'], 'Printer door (assembly, 12 planks)'],
+  ['Болт и гайка (старый формат, экспериментально)', 'samples/legacy_bolt_nut/', ['Сборка.Д.a3d', 'болт.Д.m3d', 'гайка.Д.m3d'], 'Bolt and nut (old format, experimental)'],
+  ['Спецификация «Фильтр», 2 листа (.spw)', 'samples/spw/', ['spec1.spw'], 'Specification "Filter", 2 sheets (.spw)'],
+  ['Спецификация «Кронштейн» (.spw)', 'samples/spw/', ['spec2.spw'], 'Specification "Bracket" (.spw)'],
+  ['Спецификация «Ролик в сборе» (.spw)', 'samples/spw/', ['spec3.spw'], 'Specification "Roller assembly" (.spw)'],
+  ['Корпус принтера (сборка, 24 экз.)', 'samples/casing/', ['assembly3dPrinterCasing.a3d', 'item3dPrinterCasingBlock1.m3d', 'item3dPrinterCasingDVP1.m3d', 'item3dPrinterCasingPipe1.m3d', 'item3dPrinterCasingPipe2.m3d'], 'Printer casing (assembly, 24 inst.)'],
+  ['Крышка термобокса (сборка, 40 экз., 98 тыс. треуг.)', 'samples/termobox_top/', ['assembly3dPrinterTermoboxTopV2.a3d', 'item3dPrinterTermoboxCornerV2.2.m3d', 'item3dPrinterTermoboxPlankV2.m3d', 'item3dPrinterTermoboxPlankV2_2.2.m3d', 'item3dPrinterTermoboxPlankV2_2.m3d'], 'Thermobox lid (assembly, 40 inst., 98k triangles)'],
+  ['Болтовое соединение (сборка, 5 экз.)', 'examples/bolted_plate/', ['Bolted plate.a3d', 'Plate.m3d', 'Bolt M5x16.m3d', 'Nut M5.m3d'], 'Bolted plate (assembly, 5 inst.)'],
+  ['Опора вала (сборка, 4 экз.)', 'examples/shaft_support/', ['Shaft support.a3d', 'Base.m3d', 'Shaft.m3d', 'Collar.m3d'], 'Shaft support (assembly, 4 inst.)'],
+  ['Спецификация «Болтовое соединение» (.spw)', 'examples/bolted_plate/', ['Bolted plate.spw'], 'Specification "Bolted plate" (.spw)'],
+  ['Спецификация «Опора вала» (.spw)', 'examples/shaft_support/', ['Shaft support.spw'], 'Specification "Shaft support" (.spw)'],
+  ['Чертёж сборки «Болтовое соединение» (.cdw): виды, размеры, позиции', 'examples/bolted_plate/', ['Bolted plate drawing.cdw'], 'Bolted plate assembly drawing (.cdw): views, dimensions, positions'],
+  ['Фрагмент «Болтовое соединение» (.frw): виды и размеры', 'examples/bolted_plate/', ['Bolted plate fragment.frw'], 'Bolted plate fragment (.frw): views and dimensions'],
 ];
 const EMB = window.__M3D_SAMPLES || {};     // samples embedded by tools/build.mjs; the ones that are not present are not offered
 function fillSamples() {
   const keep = $('sample').value;
   $('sample').innerHTML = '';
-  SAMPLES.forEach(([label, dir, names], i) => { if (!names.every(n => EMB[dir + n])) return; $('sample').add(new Option(t('example') + (getLang() === 'en' && SAMPLE_NAMES.en[i] ? SAMPLE_NAMES.en[i] : label), i)); });
+  SAMPLES.forEach(([label, dir, names, labelEn], i) => { if (!names.every(n => EMB[dir + n])) return; $('sample').add(new Option(t('example') + (getLang() === 'en' && labelEn ? labelEn : label), i)); });
   if (keep !== '') $('sample').value = keep;
 }
 fillSamples();
