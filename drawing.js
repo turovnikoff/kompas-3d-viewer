@@ -293,7 +293,7 @@ function scanChunk(d, out, stats) {
     if (b === 0x02 && d[o + 1] === 0 && d[o + 4] === 0 && d[o + 5] === 0 && d[o + 6] === 0 && d[o + 7] === 0) {
       const tag = d[o + 2] | (d[o + 3] << 8);
       if (tag === TAG_DIM_TEXT) {
-        if (ctx) closeDim(findString(d, dv, o + 8, Math.min(n, o + 400)));
+        if (ctx) closeDim(findString(d, dv, o + 8, Math.min(n, o + 8 + 150)));
         continue;
       }
       if (tag === TAG_TABLE && !(d[o + 4] === 1)) { const tb = readTable(d, dv, o); if (tb) { closeDim(); tctx = tb; stats.tables = (stats.tables || 0) + 1; o += 7; continue; } }
