@@ -44,6 +44,7 @@
   #msg { position:absolute; left:12px; bottom:12px; right:12px; color:var(--muted); font-size:12px; pointer-events:none; }
   #err { color:#e5484d; margin-top:8px; white-space:pre-wrap; }
   footer { flex:none; margin-top:20px; padding-top:10px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; text-align:center; }
+  footer a { color:var(--accent); text-decoration:none; } footer a:hover { text-decoration:underline; }
   #menu, #scrim { display:none; }
   /* phones and narrow windows: the side panel becomes a drawer opened with the menu button */
   @media (max-width:720px) {
@@ -98,7 +99,7 @@
         </div>
       </div>
     </div>
-    <footer>&copy; 2026 turovnikoff</footer>
+    <footer>&copy; 2026 turovnikoff<br><a href="https://github.com/turovnikoff/kompas-3d-viewer" target="_blank" rel="noopener">GitHub</a></footer>
   </aside>
   <div id="view"><div id="drop" data-i="drop">Drop a file here</div><div id="msg" data-i="msg">LMB — rotate, wheel — zoom, RMB — pan</div></div>
 </div>
