@@ -7,6 +7,8 @@ A browser-based viewer for native **KOMPAS-3D** files. It reads the binary forma
 > Status: personal, non-commercial project. The file formats are reverse-engineered (see [`FORMAT.md`](FORMAT.md)), so some features are only partly covered. Tested on files from KOMPAS-3D v14 to v24.
 > **License: all rights reserved — use only with the written permission of the copyright holder. See [License](#license).**
 
+**Live demo: https://turovnikoff.github.io/kompas-3d-viewer/**
+
 ## Features
 
 ### Supported files

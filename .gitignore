@@ -1,5 +1,4 @@
 node_modules/
-dist/samples.js
 *.bak
 ~$*
 # third-party CAD files used for local testing are not redistributed; only the author's own examples are kept
