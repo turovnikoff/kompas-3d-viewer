@@ -195,7 +195,7 @@ const SAMPLES = [   // [name (ru), folder, files, name (en)]
   ['Болтовое соединение (сборка, 9 экз.)', 'examples/bolted_plate/', ['Bolted plate.a3d', 'Plate.m3d', 'Bolt M5x16.m3d', 'Nut M5.m3d'], 'Bolted plate (assembly, 9 inst.)'],
   ['Опора вала (сборка, 4 экз.)', 'examples/shaft_support/', ['Shaft support.a3d', 'Base.m3d', 'Stud M12x44.m3d', 'Nut M12.m3d'], 'Shaft support (assembly, 4 inst.)'],
   ['Спецификация «Болтовое соединение» (.spw)', 'examples/bolted_plate/', ['Bolted plate.spw'], 'Specification "Bolted plate" (.spw)'],
-  ['Спецификация «Опора вала» (.spw)', 'examples/shaft_support/', ['Shaft support.spw'], 'Specification "Shaft support" (.spw)'],
+  ['Спецификация «Комплект крепления», 2 листа (.spw)', 'examples/specification/', ['Mounting kit.spw'], 'Specification "Mounting kit", 2 sheets (.spw)'],
   ['Чертёж сборки «Болтовое соединение» (.cdw): виды, размеры, позиции', 'examples/bolted_plate/', ['Bolted plate drawing.cdw'], 'Bolted plate assembly drawing (.cdw): views, dimensions, positions'],
   ['Фрагмент «Болтовое соединение» (.frw): виды и размеры', 'examples/bolted_plate/', ['Bolted plate fragment.frw'], 'Bolted plate fragment (.frw): views and dimensions'],
 ];
