@@ -210,7 +210,8 @@ const b64 = s => { const bin = atob(s), u = new Uint8Array(bin.length); for (let
 async function getSample(path) {
   const emb = window.__M3D_SAMPLES && window.__M3D_SAMPLES[path];
   if (emb) return b64(emb);
-  return await (await fetch(path)).arrayBuffer();
+  const r = await fetch(path); if (!r.ok) throw new Error(path + ': ' + r.status);
+  return await r.arrayBuffer();
 }
 async function loadSample(i) {
   const [, dir, names] = SAMPLES[i];
